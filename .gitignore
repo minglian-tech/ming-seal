@@ -1,0 +1,10 @@
+node_modules/
+*.log
+wallet.json
+ming-seal-records/
+tmp_*
+.DS_Store
+dist/
+build/
+.env
+*.local

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>铭印 · BSV司法存证证书</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: "SimSun", "宋体", "Noto Serif SC", serif;
+      background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      color: #333;
+    }
+    
+    .certificate {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border: 3px solid #8B0000;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      position: relative;
+    }
+    
+    .certificate::before,
+    .certificate::after {
+      content: '';
+      position: absolute;
+      border: 2px solid #8B0000;
+    }
+    
+    .certificate::before {
+      top: 8px;
+      left: 8px;
+      right: 8px;
+      bottom: 8px;
+    }
+    
+    .certificate::after {
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+    }
+    
+    .header {
+      text-align: center;
+      padding: 40px 40px 20px;
+      border-bottom: 2px solid #8B0000;
+      position: relative;
+    }
+    
+    .seal {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px;
+      border: 4px solid #8B0000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: #8B0000;
+      transform: rotate(-15deg);
+      box-shadow: inset 0 0 20px rgba(139, 0, 0, 0.1);
+    }
+    
+    .seal-inner {
+      text-align: center;
+      line-height: 1.3;
+    }
+    
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      color: #8B0000;
+      letter-spacing: 8px;
+      margin-bottom: 10px;
+    }
+    
+    .subtitle {
+      font-size: 16px;
+      color: #666;
+      letter-spacing: 4px;
+    }
+    
+    .content {
+      padding: 40px;
+    }
+    
+    .info-grid {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 15px 20px;
+      margin-bottom: 30px;
+    }
+    
+    .info-label {
+      font-weight: bold;
+      color: #8B0000;
+      text-align: right;
+    }
+    
+    .info-value {
+      word-break: break-all;
+      font-family: "Courier New", monospace;
+    }
+    
+    .hash-block {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    
+    .hash-label {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    
+    .hash-value {
+      font-family: "Courier New", monospace;
+      font-size: 13px;
+      word-break: break-all;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .blockchain-info {
+      display: flex;
+      justify-content: space-around;
+      margin: 30px 0;
+      padding: 20px;
+      background: #fafafa;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .blockchain-item {
+      text-align: center;
+    }
+    
+    .blockchain-value {
+      font-size: 20px;
+      font-weight: bold;
+      color: #8B0000;
+    }
+    
+    .blockchain-label {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+    }
+    
+    .qr-placeholder {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      border: 2px dashed #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #999;
+    }
+    
+    .footer {
+      text-align: center;
+      padding: 30px 40px;
+      border-top: 1px solid #ddd;
+      background: #fafafa;
+    }
+    
+    .company {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    
+    .tagline {
+      font-size: 12px;
+      color: #999;
+      letter-spacing: 2px;
+    }
+    
+    .timestamp {
+      font-size: 12px;
+      color: #666;
+      margin-top: 15px;
+    }
+    
+    .watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      font-size: 100px;
+      color: rgba(139, 0, 0, 0.03);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      
+      .certificate {
+        box-shadow: none;
+        border-width: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="watermark">铭印存证</div>
+  
+  <div class="certificate">
+    <div class="header">
+      <div class="seal">
+        <div class="seal-inner">
+          铭印<br>
+          MingSeal<br>
+          <span style="font-size: 10px;">BSV司法存证</span>
+        </div>
+      </div>
+      <h1 class="title">铭 印</h1>
+      <p class="subtitle">BSV区块链司法存证证书</p>
+    </div>
+    
+    <div class="content">
+      <div class="info-grid">
+        <div class="info-label">存证编号</div>
+        <div class="info-value" id="attestId">MS20260503-0001</div>
+        
+        <div class="info-label">存证类型</div>
+        <div class="info-value" id="attestType">对话存证</div>
+        
+        <div class="info-label">存证时间</div>
+        <div class="info-value" id="attestTime">2026-05-03 06:50:48 UTC</div>
+        
+        <div class="info-label">存证主体</div>
+        <div class="info-value">OpenClaw 龙虾 Agent</div>
+        
+        <div class="info-label">协议版本</div>
+        <div class="info-value" id="protocol">MSLL v1.0</div>
+        
+        <div class="info-label">BSV网络</div>
+        <div class="info-value" id="network">mainnet</div>
+      </div>
+      
+      <div class="hash-block">
+        <div class="hash-label">📄 内容哈希 (SHA-256)</div>
+        <div class="hash-value" id="contentHash">
+          f41798e6a8d7c9f3b2a1d4e6f8c9b2a1d4e6f8c9b2a1d4e6f8c9b2a1d4e6f8c9
+        </div>
+      </div>
+      
+      <div class="hash-block">
+        <div class="hash-label">🌳 Merkle根</div>
+        <div class="hash-value" id="merkleRoot">
+          a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2
+        </div>
+      </div>
+      
+      <div class="blockchain-info">
+        <div class="blockchain-item">
+          <div class="blockchain-value" id="txId">—</div>
+          <div class="blockchain-label">交易ID (TxID)</div>
+        </div>
+        <div class="blockchain-item">
+          <div class="blockchain-value" id="recordCount">1</div>
+          <div class="blockchain-label">记录数量</div>
+        </div>
+        <div class="blockchain-item">
+          <div class="blockchain-value" id="fee">1000</div>
+          <div class="blockchain-label">手续费 (sat)</div>
+        </div>
+      </div>
+      
+      <div style="text-align: center;">
+        <div class="qr-placeholder">
+          [二维码占位]<br>
+          扫码验证
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <div class="company">🏛️ 铭链科技 · MingSeal</div>
+      <div class="tagline">BSV区块链司法存证 · 不可篡改 · 可验证</div>
+      <div class="timestamp" id="generatedAt">证书生成时间：2026-05-03 06:50:48</div>
+    </div>
+  </div>
+  
+  <script>
+    // 动态填充数据（如果通过URL参数传入）
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    const fields = ['attestId', 'attestType', 'attestTime', 'contentHash', 
+                    'merkleRoot', 'txId', 'recordCount', 'fee', 'protocol', 
+                    'network', 'generatedAt'];
+    
+    fields.forEach(field => {
+      const el = document.getElementById(field);
+      const value = urlParams.get(field);
+      if (el && value) {
+        el.textContent = decodeURIComponent(value);
+      }
+    });
+  </script>
+</body>
+</html>

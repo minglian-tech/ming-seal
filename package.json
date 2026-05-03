@@ -1,0 +1,48 @@
+{
+  "name": "@mingchain/ming-seal",
+  "version": "0.2.0",
+  "description": "铭印(MingSeal) - 基于BSV区块链的AI Agent司法存证工具，支持对话存证、图片存证、Merkle批量聚合、OP_RETURN链上锚定",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "bsv",
+    "blockchain",
+    "attestation",
+    "notarization",
+    "ai-agent",
+    "merkle",
+    "op-return",
+    "judicial-evidence",
+    "data-integrity"
+  ],
+  "author": "MingLian Tech",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minglian-tech/ming-seal.git"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "skills/",
+    "templates/",
+    "openclaw.plugin.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@noble/curves": "^2.2.0",
+    "@noble/hashes": "^2.2.0",
+    "@scure/base": "^2.2.0",
+    "bitcoinjs-lib": "^7.0.1",
+    "bsv": "^2.0.10",
+    "ecpair": "^3.0.1",
+    "secp256k1": "^5.0.1",
+    "tiny-secp256k1": "^2.2.4"
+  }
+}

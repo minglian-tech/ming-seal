@@ -1,0 +1,121 @@
+{
+  "id": "ming-seal",
+  "kind": "judicial-attestation",
+  "name": "铭印 · BSV司法存证",
+  "displayName": "铭印 MingSeal",
+  "version": "0.2.0",
+  "description": "将龙虾的对话、决策、动作哈希锚定到BSV链上，生成可司法验证的存证证书。支持文本对话存证和图片存证。",
+  "author": "Minglian Tech",
+  "activation": {
+    "onStartup": true
+  },
+  "commands": [
+    {
+      "name": "存证",
+      "description": "触发文本对话存证",
+      "examples": ["存证", "铭印", "盖章"]
+    },
+    {
+      "name": "存证照片",
+      "description": "发送图片+说'存证照片'或'铭印照片'触发图片存证",
+      "examples": ["存证照片", "铭印照片", "拍照存证"]
+    },
+    {
+      "name": "验证",
+      "description": "验证链上存证",
+      "examples": ["验证 MS20260503-001", "验证 txid..."]
+    },
+    {
+      "name": "状态",
+      "description": "查看存证队列状态"
+    }
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "autoAttest": {
+        "type": "boolean",
+        "default": false,
+        "description": "对话结束自动存证"
+      },
+      "batchSize": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 1000,
+        "default": 100,
+        "description": "Merkle批量聚合条数"
+      },
+      "network": {
+        "type": "string",
+        "enum": ["mainnet", "testnet"],
+        "default": "mainnet",
+        "description": "BSV网络"
+      },
+      "workspaceDir": {
+        "type": "string",
+        "default": "ming-seal-records",
+        "description": "存证记录存储目录"
+      },
+      "bsvWallet": {
+        "type": "string",
+        "default": "1HQTm7L2KXTmNTecedhFRnQqP98yU1GAD7",
+        "description": "BSV钱包地址"
+      },
+      "sanitizeRules": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "default": [
+          "api[_-]?key",
+          "token",
+          "password",
+          "secret",
+          "private[_-]?key",
+          "authorization",
+          "bearer",
+          "x-api-key",
+          "phone",
+          "mobile",
+          "tel",
+          "email",
+          "address",
+          "id[_-]?card",
+          "id_number",
+          "bank[_-]?card",
+          "credit[_-]?card"
+        ]
+      }
+    }
+  },
+  "uiHints": {
+    "enabled": {
+      "label": "启用铭印存证",
+      "help": "开启后支持BSV区块链司法存证功能"
+    },
+    "autoAttest": {
+      "label": "自动存证",
+      "help": "对话结束时自动触发存证"
+    },
+    "batchSize": {
+      "label": "批量聚合数",
+      "help": "多条记录聚合成一个BSV交易，降低成本"
+    },
+    "network": {
+      "label": "BSV网络",
+      "help": "选择mainnet主网或testnet测试网"
+    },
+    "bsvWallet": {
+      "label": "BSV钱包地址",
+      "help": "用于上链存证的钱包地址"
+    }
+  },
+  "skills": [
+    "skills/ming-seal"
+  ]
+}
