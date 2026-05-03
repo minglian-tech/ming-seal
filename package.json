@@ -1,6 +1,6 @@
 {
   "name": "@mingchain/ming-seal",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "铭印(MingSeal) - 基于BSV区块链的AI Agent司法存证工具，支持对话存证、图片存证、Merkle批量聚合、OP_RETURN链上锚定",
   "main": "index.js",
   "directories": {
