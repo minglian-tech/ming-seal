@@ -306,4 +306,4 @@ MIT License - 详见 [LICENSE](LICENSE) 文件
 
 - **GitHub**: https://github.com/minglian-tech/ming-seal
 - **npm**: https://www.npmjs.com/package/@mingchain/ming-seal
-- **铭链科技**: https://minglian.tech
+- **铭链科技**: https://mingchain.tech
